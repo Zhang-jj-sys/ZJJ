@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 核心概念：背景、盒模型、布局、动画</title>
+    <style>
+        :root {
+            --mint-light: #e0f7f6;
+            --mint-medium: #b2ebf2;
+            --mint-dark: #80deea;
+            --mint-darker: #4dd0e1;
+            --mint-darkest: #26c6da;
+            --text-dark: #37474f;
+            --text-light: #607d8b;
+            --white: #ffffff;
+            --shadow: 0 4px 8px rgba(0, 150, 136, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        body {
+            background-color: var(--mint-light);
+            font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            background: linear-gradient(135deg, var(--mint-dark), var(--mint-darkest));
+            color: var(--white);
+            text-align: center;
+            padding: 50px 20px;
+            margin: 0 0 40px;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1::before {
+            content: "✨";
+            position: absolute;
+            font-size: 2rem;
+            top: 10px;
+            left: 20px;
+            animation: twinkle 2s infinite alternate;
+        }
+        
+        h1::after {
+            content: "💻";
+            position: absolute;
+            font-size: 2rem;
+            bottom: 10px;
+            right: 20px;
+            animation: bounce 1.5s infinite;
+        }
+        
+        section {
+            background-color: var(--white);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid var(--mint-medium);
+            position: relative;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 150, 136, 0.2);
+        }
+        
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--mint-dark), var(--mint-darkest));
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+        
+        h2 {
+            color: var(--mint-darkest);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.8rem;
+            display: inline-block;
+            border-bottom: 3px dotted var(--mint-dark);
+            position: relative;
+        }
+        
+        h2::after {
+            content: "❄️";
+            position: absolute;
+            right: -30px;
+            top: 0;
+        }
+        
+        h3 {
+            color: var(--mint-darkest);
+            margin-top: 25px;
+            font-size: 1.4rem;
+            background-color: var(--mint-light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        
+        .box {
+            width: 180px;
+            height: 180px;
+            border: 3px dashed var(--mint-darkest);
+            padding: 20px;
+            margin: 15px;
+            border-radius: 20px;
+            background-color: rgba(178, 235, 242, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-weight: bold;
+            color: var(--mint-darkest);
+            position: relative;
+        }
+        
+        .box:hover {
+            transform: rotate(5deg) scale(1.05);
+            background-color: rgba(178, 235, 242, 0.5);
+        }
+        
+        .box::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234dd0e1"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>');
+            background-size: contain;
+            bottom: 10px;
+            right: 10px;
+            opacity: 0.5;
+        }
+        
+        .display-demo p {
+            display: inline-block;
+            background-color: var(--mint-medium);
+            padding: 10px 15px;
+            margin: 8px;
+            border-radius: 50px;
+            color: var(--white);
+            font-weight: bold;
+            transition: var(--transition);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .display-demo p:hover {
+            transform: scale(1.1);
+            background-color: var(--mint-darkest);
+        }
+        
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            border: 2px dashed var(--mint-medium);
+        }
+        
+        .flex-container p {
+            flex: 1 1 200px;
+            min-width: 100px;
+            background-color: var(--white);
+            border: 2px solid var(--mint-dark);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flex-container p::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--mint-dark), var(--mint-darkest));
+        }
+        
+        .flex-container p:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 150, 136, 0.3);
+        }
+        
+        .animate-box {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, var(--mint-medium), var(--mint-dark));
+            color: var(--white);
+            text-align: center;
+            line-height: 120px;
+            margin: 30px auto;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .animate-box::before {
+            content: "👆";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .animate-box:hover {
+            border-radius: 50%;
+            transform: rotate(10deg) scale(1.1);
+            background: linear-gradient(45deg, var(--mint-dark), var(--mint-darkest));
+            box-shadow: 0 8px 20px rgba(0, 150, 136, 0.3);
+        }
+        
+        .animate-box:hover::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
+        }
+        
+        pre {
+            background-color: var(--mint-light);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--mint-darkest);
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        pre::after {
+            content: "</>";
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            color: var(--mint-darkest);
+            font-weight: bold;
+            opacity: 0.5;
+        }
+        
+        code {
+            color: var(--mint-darkest);
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+        
+        .box-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--mint-darkest);
+            color: var(--white);
+            margin-top: 50px;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+        }
+        
+        footer::before {
+            content: "🎨";
+            margin-right: 10px;
+        }
+        
+        footer::after {
+            content: "💡";
+            margin-left: 10px;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.5; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+                padding: 30px 15px;
+            }
+            
+            section {
+                padding: 20px 15px;
+            }
+            
+            .flex-container p {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSS 核心概念</h1>
+        
+        <section>
+            <h2>背景样式</h2>
+            <p>
+                CSS 背景属性让网页设计变得生动有趣！"Cascading"（层叠）是 CSS 的精髓，发音为 /kæˈskeɪdɪŋ/。让我们探索如何用背景属性创造美妙效果～
+            </p>
+            <p>
+                常用背景属性包括：
+            </p>
+            <ul>
+                <li><code>background-color</code> - 设置可爱的背景颜色</li>
+                <li><code>background-image</code> - 添加漂亮的背景图片</li>
+                <li><code>background-position</code> - 精确定位背景图像</li>
+                <li><code>background-repeat</code> - 控制图案重复方式</li>
+                <li><code>background-size</code> - 调整背景大小</li>
+            </ul>
+            <p>
+                示例代码：
+            </p>
+            <pre>
+                <code>
+/* 可爱的渐变背景 */
+.header {
+    background: linear-gradient(to right, #80deea, #4dd0e1);
+    border-radius: 12px;
+}
+
+/* 背景图像设置 */
+.banner {
+    background-image: url("cute-pattern.png");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 多重背景叠加 */
+.card {
+    background: 
+        url("watermark.png") no-repeat center,
+        linear-gradient(to bottom, #fff, #e0f7f6);
+}
+                </code>
+            </pre>
+        </section>
+        
+        <section>
+            <h2>盒模型</h2>
+            <p>
+                每个HTML元素都是一个可爱的盒子！盒模型由内容(content)、内边距(padding)、边框(border)和外边距(margin)组成，就像包装礼盒一样～
+            </p>
+            <div class="box-container">
+                <div class="box">内容区</div>
+                <div class="box">内边距</div>
+                <div class="box">边框</div>
+                <div class="box">外边距</div>
+            </div>
+            <p>
+                <code>box-sizing</code> 属性让尺寸计算更直观：
+            </p>
+            <ul>
+                <li><strong>content-box</strong> (默认) - 只计算内容大小</li>
+                <li><strong>border-box</strong> - 包含边框和内边距</li>
+            </ul>
+            <pre>
+                <code>
+/* 推荐使用 border-box */
+* {
+    box-sizing: border-box;
+}
+
+.cute-box {
+    width: 250px;
+    padding: 20px;
+    border: 3px dashed #80deea;
+    /* 实际宽度保持250px */
+    background-color: #e0f7f6;
+}
+                </code>
+            </pre>
+        </section>
+        
+        <section>
+            <h2>布局系统</h2>
+            
+            <h3>显示模式 (display)</h3>
+            <p>
+                <code>display</code> 属性决定元素如何展示：
+            </p>
+            <div class="display-demo">
+                <p>block</p>
+                <p>inline</p>
+                <p>inline-block</p>
+                <p style="display: none">none</p>
+                <p>flex</p>
+                <p>grid</p>
+            </div>
+            
+            <h3>Flexbox 弹性布局</h3>
+            <p>
+                Flexbox 让布局变得超级简单！轻松实现对齐、分布和响应式设计～
+            </p>
+            <div class="flex-container">
+                <p>项目 1</p>
+                <p>项目 2</p>
+                <p>项目 3</p>
+                <p>项目 4</p>
+                <p>项目 5</p>
+            </div>
+            <p>
+                常用 Flexbox 属性：
+            </p>
+            <ul>
+                <li><code>display: flex</code> - 开启弹性布局</li>
+                <li><code>flex-direction</code> - 主轴方向</li>
+                <li><code>justify-content</code> - 主轴对齐</li>
+                <li><code>align-items</code> - 交叉轴对齐</li>
+                <li><code>flex-wrap</code> - 是否换行</li>
+                <li><code>gap</code> - 项目间距</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>动画与过渡</h2>
+            <p>
+                让网页元素动起来！CSS动画为网站注入活力，提升用户体验～
+            </p>
+            <div class="animate-box">点我试试</div>
+            <p>
+                主要动画技术：
+            </p>
+            <ul>
+                <li><strong>过渡 (transition)</strong> - 平滑的状态变化</li>
+                <li><strong>动画 (animation)</strong> - 复杂的关键帧动画</li>
+                <li><strong>变换 (transform)</strong> - 移动、旋转、缩放</li>
+            </ul>
+            
+            <h3>过渡示例</h3>
+            <pre>
+                <code>
+.button {
+    background-color: #4dd0e1;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.button:hover {
+    background-color: #26c6da;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+                </code>
+            </pre>
+            
+            <h3>关键帧动画</h3>
+            <pre>
+                <code>
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.cloud {
+    animation: float 3s ease-in-out infinite;
+}
+                </code>
+            </pre>
+        </section>
+        
+        <footer>
+            张大无敌美少女战士的 CSS 学习小站
+        </footer>
+    </div>
+</body>
+</html>
