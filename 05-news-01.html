@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 核心语法学习一</title>
+    <script>    
+        let a = 100;
+        // alert(a)
+        console.log(a)
+        const api_key = 'ssssx-=-dddd'
+        console.log(api_key)
+        console.log(typeof a, typeof api_key,typeof true)
+        let b = '1'
+        console.log(a + b)
+        console.log(a +Number (b))
+        let c = '100'
+        console.log(typeof a,typeof c)
+        console.log(a == c)
+        console.log(a === c)
+        //
+        let current_time = '11:30'
+        if (current_time = '12:20'){
+           console.log('呀呼！')
+        }else{
+            console.log('呼呼呼！')
+        }
+        //for循环
+        for (let i = 1; i <= 10 ; i++) {
+            console.log(i)
+            
+        }
+        //while循环
+        let hug = 60
+        while (hug > 0) {
+            console.log('我想躺平……')
+            hug = hug -10
+            
+        }
+        //函数
+        function intor(){
+            console.log('你好，孤独的根号三!')
+        }
+        intor()
+        function intor2(content) {
+            console.log('以下是我介绍的内容：  ' + String(content))
+        }
+        console.log(typeof intor2('这是我传入的额参数'))
+        
+        function intor3(content1,content2) { 
+            console.log('以下是我介绍的内容： '+ String(content1) + String(content2))
+        }
+        
+        
+        intor3('我是根号三，你是根号三吗？','我是根号三，你是根号三吗？',444)  
+        function intor4(content1,content2,content3) {
+            console.log('以下是我介绍的内容： '+ String(content1) + String(content2) + String(content3))
+            return content + '这是返回值'
+        
+        }  
+        intor4('带会返回值的函数')
+        let result = intor4('带会返回值的函数')
+        console.log(result)
+        
+    </script>
+</head>
+
+<body>
+    
+</body>
+
+</html>
