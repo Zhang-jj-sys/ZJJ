@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "title": "复古游戏机界面",
+    "description": "使用HTML和CSS制作了一个8位风格的游戏机界面，包含像素化的按钮和复古色彩搭配。",
+    "link": "/practice/embed-demo",
+    "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["像素风", "游戏界面", "复古"]
+  },
+  {
+    "id": 2,
+    "title": "我的第一个组件库",
+    "description": "创建了一套像素风格的React组件，包含按钮、卡片和输入框等基础元素。",
+    "link": "/practice/my-app",
+    "imageUrl": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["React", "组件库", "UI设计"]
+  },
+  {
+    "id": 3,
+    "title": "像素艺术CSS练习",
+    "description": "通过CSS选择器实现像素艺术效果，学习了基础选择器的使用方法。",
+    "link": "/practice/03-css-01",
+    "imageUrl": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["CSS", "像素艺术", "选择器"]
+  },
+  {
+    "id": 4,
+    "title": "游戏HUD设计",
+    "description": "设计游戏界面的HUD元素，学习CSS盒模型和布局技巧。",
+    "link": "/practice/03-css-02",
+    "imageUrl": "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["CSS", "游戏UI", "HUD"]
+  },
+  {
+    "id": 5,
+    "title": "像素角色动画",
+    "description": "使用CSS动画制作像素风角色的移动效果。",
+    "link": "/practice/04-css-01",
+    "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["CSS", "动画", "像素风"]
+  },
+  {
+    "id": 6,
+    "title": "RPG状态栏",
+    "description": "制作RPG游戏风格的状态栏，包含血条、魔法值等元素。",
+    "link": "/practice/04-css-02",
+    "imageUrl": "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["CSS", "RPG", "游戏界面"]
+  },
+  {
+    "id": 7,
+    "title": "技能树布局",
+    "description": "设计技能树的布局结构，学习相对定位和绝对定位。",
+    "link": "/practice/04-css-02-relative",
+    "imageUrl": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["CSS", "定位", "技能树"]
+  },
+  {
+    "id": 8,
+    "title": "游戏资讯页面",
+    "description": "制作游戏资讯展示页面，包含新闻卡片和排版设计。",
+    "link": "/practice/05-news01",
+    "imageUrl": "https://images.unsplash.com/photo-1511882150382-421056c89033?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["HTML", "新闻页面", "排版"]
+  },
+  {
+    "id": 9,
+    "title": "互动游戏面板",
+    "description": "添加JavaScript交互功能，实现点击效果和状态切换。",
+    "link": "/practice/06-news01",
+    "imageUrl": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["JavaScript", "交互", "游戏面板"]
+  },
+  {
+    "id": 10,
+    "title": "角色管理系统",
+    "description": "使用面向对象编程创建角色类，包含属性和技能系统。",
+    "link": "/practice/06-news02",
+    "imageUrl": "https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["JavaScript", "OOP", "角色系统"]
+  },
+  {
+    "id": 11,
+    "title": "装备加载系统",
+    "description": "使用异步编程模拟装备加载过程，实现进度条效果。",
+    "link": "/practice/07-async-01",
+    "imageUrl": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["JavaScript", "异步", "加载系统"]
+  },
+  {
+    "id": 12,
+    "title": "游戏数据API",
+    "description": "从外部API获取游戏数据，实现动态内容更新。",
+    "link": "/practice/07-async-02",
+    "imageUrl": "https://images.unsplash.com/photo-1498736297812-3a08021f206f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["JavaScript", "API", "数据获取"]
+  },
+  {
+    "id": 13,
+    "title": "像素游戏首页",
+    "description": "最初的像素风格首页设计，包含基础的HTML结构。",
+    "link": "/practice/index",
+    "imageUrl": "https://images.unsplash.com/photo-1486401899868-0e435ed85128?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "tags": ["HTML", "像素风", "首页"]
+  }
+] 
